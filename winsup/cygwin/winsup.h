@@ -227,7 +227,7 @@ void multiple_cygwin_problem (const char *, uintptr_t, uintptr_t);
 
 extern "C" void vklog (int priority, const char *message, va_list ap);
 extern "C" void klog (int priority, const char *message, ...);
-bool child_copy (HANDLE, bool, ...);
+bool child_copy (HANDLE, bool, bool, ...);
 
 class path_conv;
 
