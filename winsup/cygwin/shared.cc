@@ -329,7 +329,7 @@ shared_info::initialize ()
       tty.init ();			/* Initialize tty table  */
       mt.initialize ();			/* Initialize shared tape information */
       loadavg.initialize ();		/* Initialize loadavg information */
-      prefer_forkable_hardlinks = 1;    /* Yes */
+      forkable_hardlink_support = 0;    /* 0: Unknown, 1: Yes, -1: No */
       /* Defer debug output printing the installation root and installation key
 	 up to this point.  Debug output except for system_printf requires
 	 the global shared memory to exist. */
