@@ -4,7 +4,7 @@
 #include <sys/types.h>
 
 typedef uint32_t greg_t;
-#define NGREG 19
+#define NGREG 16
 typedef greg_t gregset_t[NGREG];
 
 enum
@@ -33,18 +33,12 @@ enum
 # define REG_ECX    REG_ECX
   REG_EAX,
 # define REG_EAX    REG_EAX
-  REG_TRAPNO,
-# define REG_TRAPNO REG_TRAPNO
-  REG_ERR,
-# define REG_ERR    REG_ERR
   REG_EIP,
 # define REG_EIP    REG_EIP
   REG_CS,
 # define REG_CS     REG_CS
   REG_EFL,
 # define REG_EFL    REG_EFL
-  REG_UESP,
-# define REG_UESP   REG_UESP
   REG_SS
 # define REG_SS REG_SS
 };
