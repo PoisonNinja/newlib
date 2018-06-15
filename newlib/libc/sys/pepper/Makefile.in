@@ -68,8 +68,8 @@ LIBRARIES = $(noinst_LIBRARIES)
 ARFLAGS = cru
 lib_a_AR = $(AR) $(ARFLAGS)
 lib_a_LIBADD =
-am__objects_1 = lib_a-malloc.$(OBJEXT) lib_a-syscalls.$(OBJEXT) \
-	lib_a-syscall.$(OBJEXT)
+am__objects_1 = lib_a-errno.$(OBJEXT) lib_a-malloc.$(OBJEXT) \
+	lib_a-syscalls.$(OBJEXT) lib_a-syscall.$(OBJEXT)
 am_lib_a_OBJECTS = $(am__objects_1)
 lib_a_OBJECTS = $(am_lib_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -199,6 +199,7 @@ INCLUDES = $(NEWLIB_CFLAGS) $(CROSS_CFLAGS) $(TARGET_CFLAGS)
 AM_CCASFLAGS = $(INCLUDES)
 noinst_LIBRARIES = lib.a
 GENERAL_SOURCES = \
+	errno.c \
 	malloc.c \
 	syscalls.c \
 	syscall.S
@@ -277,6 +278,12 @@ lib_a-syscall.obj: syscall.S
 
 .c.obj:
 	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+lib_a-errno.o: errno.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-errno.o `test -f 'errno.c' || echo '$(srcdir)/'`errno.c
+
+lib_a-errno.obj: errno.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-errno.obj `if test -f 'errno.c'; then $(CYGPATH_W) 'errno.c'; else $(CYGPATH_W) '$(srcdir)/errno.c'; fi`
 
 lib_a-malloc.o: malloc.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-malloc.o `test -f 'malloc.c' || echo '$(srcdir)/'`malloc.c

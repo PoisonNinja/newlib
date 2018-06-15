@@ -5,6 +5,7 @@ AM_CCASFLAGS = $(INCLUDES)
 noinst_LIBRARIES = lib.a
 
 GENERAL_SOURCES = \
+	errno.c \
 	malloc.c \
 	syscalls.c \
 	syscall.S
