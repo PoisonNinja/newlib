@@ -1,8 +1,8 @@
 #ifndef _SYS_ERRNO_H
 #define _SYS_ERRNO_H
 
-#define errno errno
-extern __thread int errno;
+#define errno __tls_errno
+extern __thread int __tls_errno;
 
 #define EPERM 1             /* Not owner */
 #define ENOENT 2            /* No such file or directory */

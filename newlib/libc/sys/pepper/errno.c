@@ -1,3 +1,3 @@
 #include <errno.h>
 
-__thread int errno = 0;
+__thread int __tls_errno = 0;
