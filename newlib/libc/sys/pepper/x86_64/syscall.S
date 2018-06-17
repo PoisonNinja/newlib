@@ -1,8 +1,5 @@
 .global syscall
 syscall:
-    push %rbp
-    mov %rsp, %rbp
-
     mov %rdi, %rax
     mov %rsi, %rdi
     mov %rdx, %rsi
@@ -12,12 +9,12 @@ syscall:
     syscall
 
     cmpq $-4096, %rax
-    jb 1f
+    ja 1f
+    ret
+
+1:
     neg %eax
     mov %fs:0, %rsi
     mov %eax, __tls_errno@tpoff(%rsi)
     movq $-1, %rax
-
-1:
-    pop %rbp
     ret
