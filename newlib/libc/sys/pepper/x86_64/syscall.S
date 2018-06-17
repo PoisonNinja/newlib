@@ -11,10 +11,12 @@ syscall:
     mov %r9, %r8
     syscall
 
-    test %edx, %edx
-    jz 1f
+    cmpq $-4096, %rax
+    jb 1f
+    neg %eax
     mov %fs:0, %rsi
-    mov %edx, __tls_errno@tpoff(%rsi)
+    mov %eax, __tls_errno@tpoff(%rsi)
+    movq $-1, %rax
 
 1:
     pop %rbp
