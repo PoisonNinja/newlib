@@ -118,3 +118,8 @@ int sigaltstack(const stack_t *ss, stack_t *oldss)
 {
     return syscall(SYS_sigaltstack, ss, oldss, 0, 0, 0);
 }
+
+int mknod(const char *pathname, mode_t mode, dev_t dev)
+{
+    return syscall(SYS_mknod, pathname, mode, dev, 0, 0);
+}
