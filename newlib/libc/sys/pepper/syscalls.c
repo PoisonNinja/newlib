@@ -130,3 +130,8 @@ int init_module(void *module_image, unsigned long len,
 {
     return syscall(SYS_init_module, module_image, len, param_values, 0, 0);
 }
+
+int delete_module(const char *name, int flags)
+{
+    return syscall(SYS_delete_module, name, flags, 0, 0, 0);
+}
