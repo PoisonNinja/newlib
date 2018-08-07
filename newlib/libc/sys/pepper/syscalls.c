@@ -123,3 +123,10 @@ int mknod(const char *pathname, mode_t mode, dev_t dev)
 {
     return syscall(SYS_mknod, pathname, mode, dev, 0, 0);
 }
+
+// Linux does not provide wrappers for fini_module but we should
+int init_module(void *module_image, unsigned long len,
+                const char *param_values)
+{
+    return syscall(SYS_init_module, module_image, len, param_values, 0, 0);
+}

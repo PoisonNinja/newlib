@@ -21,3 +21,4 @@
 #define SYS_sigpending 127
 #define SYS_sigaltstack 131
 #define SYS_mknod 133
+#define SYS_init_module 175
