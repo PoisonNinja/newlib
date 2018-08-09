@@ -15,4 +15,10 @@ typedef __uint64_t __ino_t;
 typedef __uint32_t __mode_t;
 #define __machine_mode_t_defined
 
+typedef __uint32_t __uid_t;
+#define __machine_uid_t_defined
+
+typedef __uint32_t __gid_t;
+#define __machine_gid_t_defined
+
 #endif /* _MACHINE__TYPES_H */
