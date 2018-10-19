@@ -126,7 +126,7 @@ int mknod(const char *pathname, mode_t mode, dev_t dev)
 
 int ioctl(int fd, unsigned long request, char *argp)
 {
-    return syscall(SYS_ioctl, fd, request, argp);
+    return syscall(SYS_ioctl, fd, request, argp, 0, 0);
 }
 
 // Linux does not provide wrappers for fini_module but we should
