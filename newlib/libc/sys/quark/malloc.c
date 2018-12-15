@@ -535,7 +535,7 @@ MAX_RELEASE_CHECK_RATE   default: 4095 unless not HAVE_MMAP
 #define DLMALLOC_EXPORT extern
 #endif
 
-// Pepper specific options
+// Quark specific options
 #define malloc_getpagesize 4096
 #define HAVE_MMAP 1
 #define HAVE_MORECORE 0

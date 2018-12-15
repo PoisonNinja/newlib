@@ -411,8 +411,8 @@ case "${host}" in
 	sys_dir=tirtos
 	have_crt0="no"
 	;;
-  *-*-pepper*)
-	sys_dir=pepper
+  *-*-quark*)
+	sys_dir=quark
 	;;
   a29k-*-*)
 	sys_dir=a29khif
@@ -628,8 +628,8 @@ newlib_cflags="${newlib_cflags} -DCLOCK_PROVIDED -DMALLOC_PROVIDED -DEXIT_PROVID
   *-*-tirtos*)
 	newlib_cflags="${newlib_cflags} -D__DYNAMIC_REENT__ -DMALLOC_PROVIDED"
 	;;
-# Pepper supplies its own version of malloc and signal implementation
-  *-*-pepper*)
+# Quark supplies its own version of malloc and signal implementation
+  *-*-quark*)
 	newlib_cflags="${newlib_cflags} -DSIGNAL_PROVIDED -DMALLOC_PROVIDED -DMISSING_SYSCALL_NAMES"
 	;;
 # UDI doesn't have exec, so system() should fail the right way

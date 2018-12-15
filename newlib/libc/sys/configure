@@ -817,7 +817,7 @@ m88kbug
 mmixware
 netware
 or1k
-pepper
+quark
 phoenix
 rdos
 rtems
@@ -11853,7 +11853,7 @@ subdirs="$subdirs a29khif"
  ;;
 	or1k) subdirs="$subdirs or1k"
  ;;
-	pepper) subdirs="$subdirs pepper"
+	quark) subdirs="$subdirs quark"
  ;;
 	phoenix) subdirs="$subdirs phoenix"
  ;;
