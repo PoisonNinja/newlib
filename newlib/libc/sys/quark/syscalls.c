@@ -139,6 +139,11 @@ int dup2(int oldfd, int newfd)
     return syscall(SYS_dup2, oldfd, newfd, 0, 0, 0);
 }
 
+int chroot(const char *path)
+{
+    return syscall(SYS_chroot, path, 0, 0, 0, 0);
+}
+
 // Linux does not provide wrappers for fini_module but we should
 int init_module(void *module_image, unsigned long len,
                 const char *param_values)
