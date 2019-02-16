@@ -149,6 +149,23 @@ int chdir(const char *path)
     return syscall(SYS_chdir, path, 0, 0, 0, 0);
 }
 
+int mount(const char *source, const char *target,
+          const char *type, unsigned long mountflags,
+          const void *data)
+{
+    return syscall(SYS_mount, source, target, type, mountflags, data);
+}
+
+int umount(const char *target)
+{
+    return syscall(SYS_umount, target, 0, 0, 0, 0);
+}
+
+int mkdir(const char *pathname, mode_t mode)
+{
+    return syscall(SYS_mkdir, pathname, mode, 0, 0, 0);
+}
+
 // Linux does not provide wrappers for fini_module but we should
 int init_module(void *module_image, unsigned long len,
                 const char *param_values)
