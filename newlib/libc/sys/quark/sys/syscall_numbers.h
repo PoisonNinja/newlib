@@ -21,6 +21,7 @@
 #define SYS_execve 59
 #define SYS_exit 60
 #define SYS_kill 62
+#define SYS_chdir 80
 #define SYS_sigpending 127
 #define SYS_sigaltstack 131
 #define SYS_mknod 133
