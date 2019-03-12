@@ -9,6 +9,7 @@
 #include <sys/time.h>
 #include <sys/times.h>
 #include <sys/types.h>
+#include <poll.h>
 
 void *mmap(void *addr, size_t len, int prot, int flags, int fildes, off_t off)
 {
@@ -164,6 +165,11 @@ int umount(const char *target)
 int mkdir(const char *pathname, mode_t mode)
 {
     return syscall(SYS_mkdir, pathname, mode, 0, 0, 0);
+}
+
+int poll(struct pollfd *fds, nfds_t nfds, int timeout)
+{
+    return syscall(SYS_POLL, fds, nfds, timeout, 0, 0);
 }
 
 // Linux does not provide wrappers for fini_module but we should
