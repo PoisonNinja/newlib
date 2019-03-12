@@ -169,7 +169,7 @@ int mkdir(const char *pathname, mode_t mode)
 
 int poll(struct pollfd *fds, nfds_t nfds, int timeout)
 {
-    return syscall(SYS_POLL, fds, nfds, timeout, 0, 0);
+    return syscall(SYS_poll, fds, nfds, timeout, 0, 0);
 }
 
 // Linux does not provide wrappers for fini_module but we should
