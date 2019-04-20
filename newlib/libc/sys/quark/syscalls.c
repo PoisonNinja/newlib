@@ -125,7 +125,7 @@ int mknod(const char *pathname, mode_t mode, dev_t dev)
     return syscall(SYS_mknod, pathname, mode, dev, 0, 0);
 }
 
-int ioctl(int fd, unsigned long request, char *argp)
+int ioctl(int fd, int request, char *argp)
 {
     return syscall(SYS_ioctl, fd, request, argp, 0, 0);
 }

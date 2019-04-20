@@ -8,7 +8,8 @@ GENERAL_SOURCES = \
 	errno.c \
 	malloc.c \
 	syscalls.c \
-	syscall.S
+	syscall.S \
+	termios.c
 
 lib_a_SOURCES = $(GENERAL_SOURCES)
 lib_a_CCASFLAGS = $(AM_CCASFLAGS)
