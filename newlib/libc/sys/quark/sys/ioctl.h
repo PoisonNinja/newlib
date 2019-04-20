@@ -201,6 +201,6 @@
 
 #define TIOCSER_TEMT 0x01 /* Transmitter physically empty */
 
-int ioctl(int fd, int request, char *argp);
+int ioctl(int fd, int request, void *argp);
 
 #endif
