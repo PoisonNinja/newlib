@@ -9,6 +9,7 @@
 #include <sys/time.h>
 #include <sys/times.h>
 #include <sys/types.h>
+#include <termios.h>
 #include <poll.h>
 
 void *mmap(void *addr, size_t len, int prot, int flags, int fildes, off_t off)
@@ -62,8 +63,9 @@ int getpid()
 
 int isatty(int file)
 {
-    // Always return as a TTY
-    return 1;
+    struct termios term;
+
+    return tcgetattr(file, &term) == 0;
 }
 int kill(pid_t pid, int sig)
 {
