@@ -5,6 +5,7 @@
 #include <sys/mman.h>
 #include <sys/signal.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <sys/syscall.h>
 #include <sys/time.h>
 #include <sys/times.h>
@@ -100,7 +101,17 @@ int stat(const char *file, struct stat *st)
 }
 clock_t times(struct tms *buf);
 int unlink(char *name);
-int wait(int *status);
+
+pid_t wait(int *status)
+{
+    return waitpid(-1, status, 0);
+}
+
+pid_t waitpid(pid_t pid, int *status, int options)
+{
+    return syscall(SYS_wait, pid, status, options, 0, 0);
+}
+
 ssize_t write(int file, char *ptr, int len)
 {
     return syscall(SYS_write, file, ptr, len, 0, 0);
