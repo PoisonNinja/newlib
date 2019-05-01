@@ -1,12 +1,14 @@
 #ifndef _SYS_DIRENT_H
 #define _SYS_DIRENT_H
 
-#include <stdint.h>
+#include <sys/types.h>
 
 typedef struct dirent
 {
-    uint32_t d_ino;
-    char d_name[256];
+    long d_ino;
+    off_t d_off;
+    unsigned short d_reclen;
+    char d_name[1];
 } dirent;
 
 typedef struct _dirdesc
