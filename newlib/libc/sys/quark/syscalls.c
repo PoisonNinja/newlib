@@ -42,7 +42,7 @@ int close(int file)
 char **environ; /* pointer to array of char * strings that define the current
                    environment variables */
 
-int execve(char *name, char **argv, char **env)
+int _execve(char *name, char **argv, char **env)
 {
     return syscall(SYS_execve, name, argv, env, 0, 0);
 }
