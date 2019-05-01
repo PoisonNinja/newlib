@@ -9,13 +9,23 @@ typedef struct dirent
     char d_name[256];
 } dirent;
 
-typedef struct DIR
+typedef struct _dirdesc
 {
-    int fd;
+    int dd_fd;
+    long dd_loc;
+    long dd_size;
+    char *dd_buf;
+    int dd_len;
+    long dd_seek;
 } DIR;
 
-DIR *opendir(const char *dirname);
-int closedir(DIR *dir);
-struct dirent *readdir(DIR *dirp);
+#define __dirfd(dp) ((dp)->dd_fd)
+
+DIR *opendir(const char *);
+struct dirent *readdir(DIR *);
+int readdir_r(DIR *__restrict, struct dirent *__restrict,
+              struct dirent **__restrict);
+void rewinddir(DIR *);
+int closedir(DIR *);
 
 #endif

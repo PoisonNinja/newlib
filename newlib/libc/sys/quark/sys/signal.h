@@ -6,8 +6,9 @@ extern "C" {
 
 #include <sys/types.h>
 
-#undef NSIGS
-#define NSIGS 32
+#undef NSIG
+#define NSIG 32
+
 // We should probably typedef something like _sigset_t (__sigset_t is used
 // already) then #define sigset_t to _sigset_t
 #undef sigset_t
