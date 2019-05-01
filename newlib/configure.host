@@ -414,7 +414,7 @@ case "${host}" in
   *-*-quark*)
 	sys_dir=quark
 	posix_dir=posix
-	unix_dir=unix
+	# unix_dir=unix
 	;;
   a29k-*-*)
 	sys_dir=a29khif
